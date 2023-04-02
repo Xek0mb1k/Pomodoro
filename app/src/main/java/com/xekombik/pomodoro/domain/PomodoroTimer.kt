@@ -6,7 +6,9 @@ data class PomodoroTimer(
     val breakTime: Int,
     val longBreakTime: Int,
 
-    val timerMode: String,
-    val pomodoroCounter: Int
+
+    var time: Int = 0,
+    var timerMode: Int = 0,
+    var pomodoroCounter: Int = 0
 
 )
