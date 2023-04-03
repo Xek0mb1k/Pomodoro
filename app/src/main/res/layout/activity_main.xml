@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".presentation.MainActivity">
 
+
     <TextView
         android:id="@+id/time_text_view"
         android:layout_width="wrap_content"
@@ -14,12 +15,13 @@
         android:background="@drawable/timer_background"
         android:fontFamily="@font/inter_extralight"
         android:gravity="center"
-        android:text="@string/time"
-        android:textColor="#591515"
+
+        android:textColor="?attr/textFillColor"
         android:textSize="70sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="25:00"/>
 
     <ImageButton
         android:id="@+id/play_pause_button"
