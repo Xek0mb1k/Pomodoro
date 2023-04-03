@@ -20,6 +20,7 @@
         <item name="rippleColor" >#33000000</item>
         <item name="textFillColor">#FF484848</item>
         <item name="colorPrimaryContainer">#33080808</item>
+        <item name="colorBackgroundFloating">#000000</item>
     </style>
 
 </resources>

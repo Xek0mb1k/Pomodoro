@@ -4,30 +4,44 @@ import androidx.lifecycle.ViewModel
 
 import com.xekombik.pomodoro.domain.*
 
-class MainViewModel(private val repository: TimerRepository): ViewModel() {
+
+class MainViewModel(private val repository: TimerRepository) : ViewModel() {
 
 
     private val getTimerUseCase = GetTimerUseCase(repository)
-    private val getGeneralTimeUseCase = GetGeneralTimeUseCase(repository)
+    private val setGeneralTimeUseCase = SetGeneralTimeUseCase(repository)
+    private val getTimerModeUseCase = GetTimerModeUseCase(repository)
+    private val changeTimerModeUseCase = ChangeTimerModeUseCase(repository)
+    private val changeTimerModeWhenTimerFinishedUseCase =
+        ChangeTimerModeWhenTimerFinishedUseCase(repository)
 
     private val resetTimeUseCase = ResetTimeUseCase(repository)
 
-    private val addPomodoroCounterUseCase = AddPomodoroCounterUseCase(repository)
 
-    var time = 0
-    fun getTimer(): PomodoroTimer{
+    var pomodoroTimer = PomodoroTimer(0, 0, 0)
+
+    fun getTimer(): PomodoroTimer {
         return getTimerUseCase.getTimer()
     }
 
-    fun getGeneralTime(pomodoroTimer: PomodoroTimer){
-        time = getGeneralTimeUseCase.getGeneralTime(pomodoroTimer)
+    fun setGeneralTime(pomodoroTimer: PomodoroTimer) {
+        pomodoroTimer.time = setGeneralTimeUseCase.getGeneralTime(pomodoroTimer)
     }
-    fun resetTime(pomodoroTimer: PomodoroTimer){
+
+    fun getTimerMode(pomodoroTimer: PomodoroTimer): String {
+        return getTimerModeUseCase.getTimerMode(pomodoroTimer)
+    }
+
+    fun resetTime(pomodoroTimer: PomodoroTimer) {
         resetTimeUseCase.resetTime(pomodoroTimer)
     }
 
-    fun addPomodoroCounter(pomodoroTimer: PomodoroTimer){
-        addPomodoroCounterUseCase.addCounter(pomodoroTimer)
+
+    fun changeTimerMode(pomodoroTimer: PomodoroTimer) {
+        changeTimerModeUseCase.changeTimerMode(pomodoroTimer)
     }
 
+    fun changeTimerModeWhenTimerFinished(pomodoroTimer: PomodoroTimer) {
+        changeTimerModeWhenTimerFinishedUseCase.changeTimerModeWhenTimerFinished(pomodoroTimer)
+    }
 }
