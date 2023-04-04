@@ -1,5 +1,6 @@
 package com.xekombik.pomodoro.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View.INVISIBLE
@@ -42,6 +43,7 @@ class MainActivity : AppCompatActivity() {
             } else
                 playTimer()
         }
+
         binding.resetButton.setOnClickListener {
             timer.cancel()
             vm.resetTime(vm.pomodoroTimer)
@@ -50,6 +52,14 @@ class MainActivity : AppCompatActivity() {
             changeButtonsWhenTimerNotWorking()
             timer = initTimer()
 
+        }
+
+        binding.settingsButton.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            intent.putExtra("pomodoroTime", vm.pomodoroTimer.pomodoroTime / SECONDS_IN_MINUTES)
+            intent.putExtra("breakTime", vm.pomodoroTimer.breakTime / SECONDS_IN_MINUTES)
+            intent.putExtra("longBreakTime", vm.pomodoroTimer.longBreakTime / SECONDS_IN_MINUTES)
+            startActivity(intent)
         }
     }
 

@@ -6,8 +6,8 @@ import com.xekombik.pomodoro.presentation.MainActivity
 
 object TimerRepositoryImpl : TimerRepository {
 
-    // private var timer = PomodoroTimer(25 * 60, 5 * 60, 15 * 60)
-    private var timer = PomodoroTimer(0, 0, 0)
+    private val timer = PomodoroTimer(25 * 60, 5 * 60, 15 * 60)
+
     init {
         resetTime(timer)
     }
