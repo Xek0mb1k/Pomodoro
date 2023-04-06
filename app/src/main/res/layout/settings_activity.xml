@@ -182,7 +182,6 @@
             app:layout_constraintTop_toBottomOf="@+id/view" />
 
         <Switch
-
             android:id="@+id/soundSwitch"
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -296,7 +295,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/linkToGitHub"
             android:layout_width="48dp"
             android:layout_height="35dp"
             android:layout_marginTop="10dp"

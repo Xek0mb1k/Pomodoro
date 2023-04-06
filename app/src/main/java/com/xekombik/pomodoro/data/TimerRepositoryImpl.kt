@@ -1,12 +1,15 @@
 package com.xekombik.pomodoro.data
 
+import android.content.Context
+import android.content.SharedPreferences
 import com.xekombik.pomodoro.domain.PomodoroTimer
 import com.xekombik.pomodoro.domain.TimerRepository
-import com.xekombik.pomodoro.presentation.MainActivity
+
+
 
 object TimerRepositoryImpl : TimerRepository {
 
-    private val timer = PomodoroTimer(25 * 60, 5 * 60, 15 * 60)
+    private val timer = PomodoroTimer(0, 0, 0)
 
     init {
         resetTime(timer)
