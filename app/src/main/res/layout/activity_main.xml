@@ -11,7 +11,7 @@
         android:id="@+id/time_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/timer_background"
         android:fontFamily="@font/inter_extralight"
         android:gravity="center"
@@ -21,7 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="25:00"/>
+        tools:text="25:00" />
 
     <ImageButton
         android:id="@+id/play_pause_button"
@@ -42,6 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:animateLayoutChanges="true"
         android:background="@drawable/reset_background_button"
         android:text="@string/reset"
         android:textColor="@color/gray"
@@ -69,7 +70,6 @@
         style="@style/Widget.MaterialComponents.Button.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:background="@drawable/reset_background_button"
         android:textColor="@color/gray"
         android:textStyle="bold"
@@ -85,19 +85,20 @@
         android:id="@+id/pomodoro_progress_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/pomodoro_progress_2"
         android:padding="10dp"
         android:src="@drawable/ellipse_disabled"
         app:layout_constraintBottom_toBottomOf="@+id/pomodoro_progress_3"
         app:layout_constraintEnd_toStartOf="@+id/pomodoro_progress_3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/pomodoro_progress_1"
-        app:layout_constraintTop_toTopOf="@+id/pomodoro_progress_3"
-        android:contentDescription="@string/pomodoro_progress_2" />
+        app:layout_constraintTop_toTopOf="@+id/pomodoro_progress_3" />
 
     <ImageView
         android:id="@+id/pomodoro_progress_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/pomodoro_progress_1"
         android:padding="10dp"
         android:src="@drawable/ellipse_disabled"
         app:layout_constraintBottom_toBottomOf="@+id/pomodoro_progress_2"
@@ -105,33 +106,31 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/pomodoro_progress_2"
-        android:contentDescription="@string/pomodoro_progress_1" />
+        app:layout_constraintTop_toTopOf="@+id/pomodoro_progress_2" />
 
     <ImageView
         android:id="@+id/pomodoro_progress_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:contentDescription="@string/pomodoro_progress_3"
         android:padding="10dp"
         android:src="@drawable/ellipse_disabled"
         app:layout_constraintEnd_toStartOf="@+id/pomodoro_progress_4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/pomodoro_progress_2"
-        app:layout_constraintTop_toBottomOf="@+id/change_duration_button"
-        android:contentDescription="@string/pomodoro_progress_3" />
+        app:layout_constraintTop_toBottomOf="@+id/change_duration_button" />
 
     <ImageView
         android:id="@+id/pomodoro_progress_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/pomodoro_progress_4"
         android:padding="10dp"
         android:src="@drawable/ellipse_disabled"
         app:layout_constraintBottom_toBottomOf="@+id/pomodoro_progress_3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/pomodoro_progress_3"
-        app:layout_constraintTop_toTopOf="@+id/pomodoro_progress_3"
-        android:contentDescription="@string/pomodoro_progress_4" />
+        app:layout_constraintTop_toTopOf="@+id/pomodoro_progress_3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

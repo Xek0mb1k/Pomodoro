@@ -9,6 +9,9 @@ import android.os.*
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.view.WindowManager
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.xekombik.pomodoro.R
 import com.xekombik.pomodoro.databinding.ActivityMainBinding
@@ -41,7 +44,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.changeDurationButton.setOnClickListener {
             vm.changeTimerMode(vm.pomodoroTimer)
+
             refreshValuesOnTextViews()
+
             timer = initTimer()
         }
 
@@ -57,9 +62,10 @@ class MainActivity : AppCompatActivity() {
         binding.resetButton.setOnClickListener {
             timer.cancel()
             vm.resetTime(vm.pomodoroTimer)
-            refreshValuesOnTextViews()
+            binding.timeTextView.text = formatTime(vm.pomodoroTimer.time)
             timerIsWorking = false
             changeButtonsWhenTimerNotWorking()
+            setInvisibleResetButton()
             timer = initTimer()
 
         }
@@ -123,6 +129,7 @@ class MainActivity : AppCompatActivity() {
 
                 timerIsWorking = false
                 changeButtonsWhenTimerNotWorking()
+                setInvisibleResetButton()
                 timer = initTimer()
                 vm.changeTimerModeWhenTimerFinished(vm.pomodoroTimer)
                 refreshPomodoroProgress()
@@ -151,12 +158,26 @@ class MainActivity : AppCompatActivity() {
         timerIsWorking = false
         changeButtonsWhenTimerNotWorking()
         timer.cancel()
-        refreshValuesOnTextViews()
+        binding.timeTextView.text = formatTime(vm.pomodoroTimer.time)
     }
 
     private fun refreshValuesOnTextViews() {
         binding.timeTextView.text = formatTime(vm.pomodoroTimer.time)
-        binding.changeDurationButton.text = vm.getTimerMode(vm.pomodoroTimer)
+        val anim = AlphaAnimation(1.0f, 0.0f)
+        anim.duration = 100
+        anim.repeatCount = 1
+        anim.repeatMode = Animation.REVERSE
+
+        anim.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationEnd(animation: Animation?) {}
+            override fun onAnimationStart(animation: Animation?) {}
+            override fun onAnimationRepeat(animation: Animation?) {
+                binding.changeDurationButton.text = vm.getTimerMode(vm.pomodoroTimer)
+            }
+        })
+        binding.changeDurationButton.startAnimation(anim)
+
+
     }
 
     private fun refreshPomodoroProgress() {
@@ -178,13 +199,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun playSong(){
+    private fun playSong() {
         val mediaPlayer = MediaPlayer.create(applicationContext, R.raw.bell)
         mediaPlayer.start()
     }
 
 
-    private fun vibrate(){
+    private fun vibrate() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             val vibratorManager =
@@ -194,7 +215,12 @@ class MainActivity : AppCompatActivity() {
             object : CountDownTimer(500, 500) {
 
                 override fun onTick(millisUntilFinished: Long) {
-                    vibrator.vibrate(VibrationEffect.createOneShot(10000, VibrationEffect.DEFAULT_AMPLITUDE))
+                    vibrator.vibrate(
+                        VibrationEffect.createOneShot(
+                            10000,
+                            VibrationEffect.DEFAULT_AMPLITUDE
+                        )
+                    )
                 }
 
                 override fun onFinish() {
@@ -211,14 +237,31 @@ class MainActivity : AppCompatActivity() {
 
     private fun changeButtonsWhenTimerWorking() {
         binding.playPauseButton.setImageResource(R.drawable.baseline_pause_24)
-        binding.resetButton.visibility = VISIBLE
+        if(binding.resetButton.visibility != VISIBLE){
+            binding.resetButton.startAnimation(
+                AnimationUtils.loadAnimation(
+                    applicationContext,
+                    R.anim.button_animation_to_visible
+                )
+            )
+            binding.resetButton.visibility = VISIBLE
+        }
+
         binding.changeDurationButton.isClickable = false
     }
 
     private fun changeButtonsWhenTimerNotWorking() {
         binding.playPauseButton.setImageResource(R.drawable.baseline_play_arrow_24)
-        binding.resetButton.visibility = INVISIBLE
         binding.changeDurationButton.isClickable = true
+    }
+    private fun setInvisibleResetButton(){
+        binding.resetButton.startAnimation(
+            AnimationUtils.loadAnimation(
+                applicationContext,
+                R.anim.button_animation_to_invisible
+            )
+        )
+        binding.resetButton.visibility = INVISIBLE
     }
 
     private fun formatTime(seconds: Int): String {
