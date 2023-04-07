@@ -17,7 +17,6 @@ class MainViewModel(private val repository: TimerRepository) : ViewModel() {
 
     private val resetTimeUseCase = ResetTimeUseCase(repository)
 
-
     var pomodoroTimer = PomodoroTimer(0, 0, 0)
 
     fun getTimer(): PomodoroTimer {

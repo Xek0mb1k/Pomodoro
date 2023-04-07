@@ -24,4 +24,20 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="turn_down_value">Turn down Minutes</string>
+    <string name="pomodoro">Pomodoro</string>
+    <string name="break_time">Break</string>
+    <string name="long_break">Long break</string>
+    <string name="add_minutes">Add minutes</string>
+    <string name="durations">Durations</string>
+    <string name="others">Others</string>
+    <string name="sound">Sound</string>
+    <string name="vibrate">Vibrate</string>
+    <string name="autostart_breaks">Autostart breaks</string>
+    <string name="autostart_pomodoro">Autostart pomodoro</string>
+    <string name="keep_phone_awake">Keep phone awake</string>
+    <string name="about">About</string>
+    <string name="pomodoro_version_1_0">Pomodoro\nVersion 1.0</string>
+    <string name="link_to_git_hub">Link to Git Hub</string>
+    <string name="app_logo">App Logo</string>
 </resources>
