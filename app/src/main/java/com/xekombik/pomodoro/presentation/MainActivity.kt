@@ -1,6 +1,6 @@
 package com.xekombik.pomodoro.presentation
 
-import android.Manifest.permission.VIBRATE
+
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
         prefs = getSharedPreferences("Settings", Context.MODE_PRIVATE)
 
 
@@ -116,12 +117,9 @@ class MainActivity : AppCompatActivity() {
                     playSong()
 
 
-                if (vibrateIsOn) {
+                if (vibrateIsOn)
+                    vibrate()
 
-                        vibrate()
-
-
-                }
 
                 timerIsWorking = false
                 changeButtonsWhenTimerNotWorking()
@@ -178,30 +176,35 @@ class MainActivity : AppCompatActivity() {
                 }
             )
         }
-
     }
 
     private fun playSong(){
-        val mediaPlayer = MediaPlayer.create(applicationContext, R.raw.bell);
-        mediaPlayer.start();
+        val mediaPlayer = MediaPlayer.create(applicationContext, R.raw.bell)
+        mediaPlayer.start()
     }
-
 
 
     private fun vibrate(){
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             val vibratorManager =
-                this.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager
-            val vibrator = vibratorManager.defaultVibrator;
+                getSystemService(VIBRATOR_MANAGER_SERVICE) as VibratorManager
+            val vibrator = vibratorManager.defaultVibrator
 
-            val timings: LongArray = longArrayOf(0, 200, 10, 500)
+            object : CountDownTimer(500, 500) {
 
-            vibrator.vibrate(VibrationEffect.createOneShot(1000, VibrationEffect.DEFAULT_AMPLITUDE))
-            // TODO("FIX THIS")
+                override fun onTick(millisUntilFinished: Long) {
+                    vibrator.vibrate(VibrationEffect.createOneShot(10000, VibrationEffect.DEFAULT_AMPLITUDE))
+                }
+
+                override fun onFinish() {
+                    vibrator.cancel()
+                }
+            }.start()
+
         } else {
-            val vibratorService = getSystemService(VIBRATOR_SERVICE) as Vibrator
-            vibratorService.vibrate(1000)
+            val vibrator = getSystemService(VIBRATOR_SERVICE) as Vibrator
+            vibrator.vibrate(500)
         }
 
     }

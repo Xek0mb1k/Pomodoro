@@ -93,9 +93,9 @@ class SettingsActivity : AppCompatActivity() {
     @SuppressLint("CommitPrefEdits")
     override fun onPause() {
         with(prefs.edit()){
-            putInt("pomodoroTime", pomodoroTime * 1)
-            putInt("breakTime", breakTime * 1)
-            putInt("longBreakTime", longBreakTime * 1)
+            putInt("pomodoroTime", pomodoroTime * 60)
+            putInt("breakTime", breakTime * 60)
+            putInt("longBreakTime", longBreakTime * 60)
 
             putBoolean("soundIsOn", binding.soundSwitch.isChecked)
             putBoolean("vibrateIsOn", binding.vibrateSwitch.isChecked)
