@@ -3,7 +3,7 @@
 <br/>
 It is a Pomodoro timer that is simple and customizable. Its purpose is to offer an appealing and dependable means of monitoring productivity through the use of the Pomodoro technique.
 
-In this project i used ViewBinding, Clean Achitecture ans DI on koin.
+In this project i used ViewBinding, Clean Achitecture and DI on koin.
 # Preview
 <div align="center">
   <img src="https://user-images.githubusercontent.com/84407094/230582712-dfbce388-ceae-4258-babb-39d3642284fd.png" width="200" />   <img src="https://user-images.githubusercontent.com/84407094/230582872-8a34ab68-bbc6-4891-a82c-3a457d9febd2.png" width="200" />
