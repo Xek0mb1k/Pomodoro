@@ -22,6 +22,7 @@
         <item name="textFillColor">#FF484848</item>
         <item name="colorPrimaryContainer">#33080808</item>
         <item name="colorBackgroundFloating">#000000</item>
+        <item name="play_pause_background_color">@color/green_50</item>
     </style>
 
 </resources>

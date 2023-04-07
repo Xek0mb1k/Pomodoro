@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.Pomodoro" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -18,5 +18,6 @@
         <item name="textFillColor">#FFA0A0A0</item>
         <item name="colorPrimaryContainer">#CC080808</item>
         <item name="colorBackgroundFloating">#FFFFFF</item>
+        <item name="play_pause_background_color">@color/green_40</item>
     </style>
 </resources>

@@ -29,12 +29,12 @@
 
         <ImageButton
             android:id="@+id/reducePomodoroTimeButton"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginEnd="12dp"
             android:background="@drawable/ripple_background_button"
             android:contentDescription="@string/turn_down_value"
-            android:scaleType="fitCenter"
+
             android:src="@drawable/baseline_remove_24"
             app:layout_constraintBottom_toBottomOf="@+id/pomodoroDurationTextView"
             app:layout_constraintEnd_toStartOf="@+id/pomodoroDurationTextView"
@@ -51,12 +51,11 @@
 
         <ImageButton
             android:id="@+id/addPomodoroTimeButton"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginStart="12dp"
             android:background="@drawable/ripple_background_button"
             android:contentDescription="@string/add_minutes"
-            android:scaleType="fitCenter"
             android:src="@drawable/baseline_add_24"
             app:layout_constraintBottom_toBottomOf="@+id/pomodoroDurationTextView"
             app:layout_constraintStart_toEndOf="@+id/pomodoroDurationTextView"
@@ -75,12 +74,11 @@
 
         <ImageButton
             android:id="@+id/reduceBreakTimeButton"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginEnd="12dp"
             android:background="@drawable/ripple_background_button"
             android:contentDescription="@string/turn_down_value"
-            android:scaleType="fitCenter"
             android:src="@drawable/baseline_remove_24"
             app:layout_constraintBottom_toBottomOf="@+id/breakDurationTextView"
             app:layout_constraintEnd_toStartOf="@+id/breakDurationTextView"
@@ -98,12 +96,11 @@
 
         <ImageButton
             android:id="@+id/addBreakTimeButton"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginStart="12dp"
             android:background="@drawable/ripple_background_button"
             android:contentDescription="@string/add_minutes"
-            android:scaleType="fitCenter"
             android:src="@drawable/baseline_add_24"
             app:layout_constraintBottom_toBottomOf="@+id/breakDurationTextView"
             app:layout_constraintStart_toEndOf="@+id/breakDurationTextView"
@@ -121,12 +118,12 @@
 
         <ImageButton
             android:id="@+id/reduceLongBreakTimeButton"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginEnd="12dp"
             android:background="@drawable/ripple_background_button"
             android:contentDescription="@string/turn_down_value"
-            android:scaleType="fitCenter"
+
             android:src="@drawable/baseline_remove_24"
             app:layout_constraintBottom_toBottomOf="@+id/longBreakDurationTextView"
             app:layout_constraintEnd_toStartOf="@+id/longBreakDurationTextView"
@@ -146,12 +143,12 @@
 
         <ImageButton
             android:id="@+id/addLongBreakTimeButton"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginStart="12dp"
             android:background="@drawable/ripple_background_button"
             android:contentDescription="@string/add_minutes"
-            android:scaleType="fitCenter"
+
             android:src="@drawable/baseline_add_24"
             app:layout_constraintBottom_toBottomOf="@+id/longBreakDurationTextView"
             app:layout_constraintStart_toEndOf="@+id/longBreakDurationTextView"
@@ -297,7 +294,7 @@
         <ImageButton
             android:id="@+id/linkToGitHub"
             android:layout_width="48dp"
-            android:layout_height="35dp"
+            android:layout_height="48dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/ripple_background_button"
             android:scaleType="fitCenter"
@@ -309,7 +306,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linkToGitHub" />

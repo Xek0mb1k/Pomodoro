@@ -12,17 +12,18 @@
 <!--    </item>-->
     <item
         android:gravity="center"
-        android:width="400dp"
-        android:height="400dp">
+        android:width="380dp"
+        android:height="380dp">
         <bitmap android:src="@drawable/green_back"/>
+
     </item>
 
 
     <item
-        android:width="300dp"
-        android:height="300dp"
-        android:gravity="center"
-    >
+        android:width="270dp"
+        android:height="270dp"
+        android:gravity="center">
+
         <shape android:shape="oval">
             <solid android:color="?attr/colorPrimaryContainer"/>
             <stroke android:width="3dp"
